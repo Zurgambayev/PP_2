@@ -1,0 +1,2 @@
+def era(*args):
+    print()
