@@ -24,11 +24,3 @@ acct1.withdraw(75)
 
 # Test to make sure the account can't be overdrawn
 acct1.withdraw(500)
-
-
-nums = [2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-# using filter function
-prime_nums = list(filter(lambda x: all(x % i != 0 for i in range(2, x)), nums))
-
-print("Prime numbers in the list:", prime_nums)
