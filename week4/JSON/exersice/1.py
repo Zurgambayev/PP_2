@@ -14,4 +14,3 @@ for x in range(3):
     speed = attributes.get("speed")
     mtu = attributes.get("mtu")
     print("{:<71} {:<10} {:<10}".format(dn, speed, mtu))
-

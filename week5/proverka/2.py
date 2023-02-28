@@ -1,22 +1,9 @@
-from functools import reduce
+import re 
 
-numbers = []
-numbers = [1, 2, 3, 4, 5]
+a = 'The rain in Spain'
+x = re.search("^The.*Spain$",a)
 
-def product(x, y):
-    return x * y
-
-result = reduce(product, numbers)
-
-
-
-result = reduce(product, numbers)
-
-
-result = reduce(product,) 
-
-
-result
-
-
-print(result)
+if x:
+  print("YES! We have a match!")
+else:
+  print("No match")
