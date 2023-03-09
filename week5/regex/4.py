@@ -1,9 +1,9 @@
-import re
- 
+import re 
 
-with open("row.txt" , "rt") as file:
-    s = file.read().replace('\n', "").replace('\r', "")
-s = str(s)
-l = re.findall(r'[A-Z]{1}[a-z]+', s)
+file = open('/Users/zeinaddinzurgambayev/pp2/week5/regex/row.txt','r')
 
-print(l)
+result = file.read()
+
+Pattern = re.findall('[A-Z]{1}[a-z]+',result)
+
+print(Pattern)

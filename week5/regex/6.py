@@ -9,3 +9,6 @@ s = str(s)
 l = re.sub("\.+",":", s)
 l = re.sub("[ ]",",", s)
 print(l)
+
+
+#Adsfgg [A-Z]{1}[a-z]8*

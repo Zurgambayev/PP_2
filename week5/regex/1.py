@@ -1,9 +1,7 @@
-import re
- 
+import re 
 
-with open("row.txt" , "rt") as file:
-    s = file.read().replace('\n', "").replace('\r', "")
-s = str(s)
-l = re.findall(r'ab*', s)
+file = open('/Users/zeinaddinzurgambayev/pp2/week5/regex/row.txt', 'r')
+contents = file.read()
+result = re.findall('ab+',contents)
+print(result)
 
-print(l)

@@ -1,9 +1,8 @@
-import re
+import re 
+file = open('/Users/zeinaddinzurgambayev/pp2/week5/regex/row.txt','r')
 
-# s = input() 
-s = "wdefsf_aefsgdfba_acdsv_cds_DSVF_w"
-l = re.split(r"_", s)
-s2 = ''
-for i in l:
-    s2 += (i[0].upper() + i[1:])
-print(s2)
+result = file.read() 
+
+Pattern = re.sub(r' ',',.', result)
+
+print(Pattern)

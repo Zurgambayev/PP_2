@@ -1,11 +1,9 @@
+import re 
 
+file = open('/Users/zeinaddinzurgambayev/pp2/week5/regex/row.txt','r')
 
-import re
- 
+result = file.read()
 
-with open("row.txt" , "rt") as file:
-    s = file.read().replace('\n', "").replace('\r', "")
-s = str(s)
-l = re.findall(r'[a-zA-Z]+\-[a-zA-Z]+', s)
+Pattern = re.findall('.*[a-z]-[a-z].*',result)
 
-print(l)
+print(Pattern)
