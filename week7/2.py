@@ -5,7 +5,7 @@ pygame.display.set_caption("Music Player")
 screen = pygame.display.set_mode((500,400))
 
 pygame.mixer.init()
-Music = r'C:\Users\Nurza\Documents\PP2\week7\Music'
+Music = r'C:\Users\Nurza\Documents\PP2\week7\Musqic'
 music_files = os.listdir(Music)
 music_files = [os.path.join(Music,file) for file in music_files if file.endswith(".mp3")]
 i = 0

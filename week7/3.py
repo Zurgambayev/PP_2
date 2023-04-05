@@ -1,5 +1,5 @@
 import pygame 
-import math 
+
 
 pygame.init()
 
@@ -8,6 +8,7 @@ check = True
 is_blue = True 
 x = 50
 y = 50
+clock = pygame.time.Clock()
 
 while check:
 
@@ -43,3 +44,4 @@ while check:
     monitor.fill(color)
     pygame.draw.circle(monitor,(255, 0 , 0),(x,y),25 )
     pygame.display.update()
+    clock.tick(60)

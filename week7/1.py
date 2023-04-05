@@ -1,5 +1,8 @@
 import pygame
+import datetime 
+
 pygame.init()
+
 W, H = 800, 800
 x = W//2
 y = H//2
@@ -12,9 +15,9 @@ rightHand = pygame.image.load(r"/Users/zeinaddinzurgambayev/pp2/week7/Новая
 mickeyRect = mickey.get_rect()
 def blitRotateCenter(surf, image, center, angle):
     rotated_image = pygame.transform.rotate(image, angle)
-    new_rect = rotated_image.get_rect(center = image.get_rect(center = center).center)
+    new_rect = rotated_image.get_rect(center = image.get_rect(center=center).center)
     surf.blit(rotated_image, new_rect)
-langle = 0
+langle = 0 
 rangle = 0
 while True:
     sc.fill(0)
@@ -25,7 +28,7 @@ while True:
     rangle -= 0.000006
     
     sc.fill(WHITE)
-    sc.blit(mickey, (x, y))
+    # sc.blit(mickey, (x, y))
     sc.blit(mickey, mickeyRect)
     blitRotateCenter(sc, rightHand, (x,y), rangle)
     blitRotateCenter(sc, leftHand, (x,y), langle) 
