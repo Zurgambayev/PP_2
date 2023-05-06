@@ -1,8 +1,12 @@
 import random
 import time
 import pygame
+import psycopg2
+from config import config
 
 pygame.init()
+config = psycopg2.connect(**(config()))
+current = config.cursor()
 
 white = (255, 255, 255)
 yellow = (255, 255, 102)
@@ -25,6 +29,27 @@ snake_speed = 15
 font_style = pygame.font.SysFont("bahnschrift", 25)
 score_font = pygame.font.SysFont("comicsansms", 35)
 level_font = pygame.font.SysFont("comicsansms", 35)
+
+print("What is your name?")
+username = input()
+
+select = '''
+    SELECT * FROM savefile WHERE user_name = %s;
+'''
+current.execute(select, [username])
+DICT = current.fetchone()
+
+
+if DICT == None:
+    insert = '''
+        INSERT INTO savefile VALUES(%s, 0, 0);
+    '''
+    current.execute(insert, [username])
+    config.commit()
+pygame.init()
+
+current.execute(select, [username])
+DICT = current.fetchone()
 
 
 
@@ -62,7 +87,6 @@ def gameLoop():
     snake_List = []
     Length_of_snake = 1
     level = 1
-    foods = []
 
     #еда появляется в рандомных местах
     foodx = round(random.randrange(0, dis_width - snake_block) / 10) * 10
@@ -97,6 +121,12 @@ def gameLoop():
                     change_to = 'LEFT'
                 if event.key == pygame.K_RIGHT:
                     change_to = 'RIGHT'
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_p:
+                    sql = '''
+                                UPDATE savefile SET score = %s, level = %s WHERE user_name = %s;
+                                '''
+                    current.execute(sql, [Length_of_snake, level, username])
+                    config.commit()
 
         # Если две клавиши нажаты одновременно
         # мы не хотим, чтобы змея разделялась на две
@@ -109,23 +139,22 @@ def gameLoop():
             direction = 'LEFT'
         if change_to == 'RIGHT' and direction != 'LEFT':
             direction = 'RIGHT'
-
-        # Перемещение змеи
+            # Перемещение змеи
         if direction == 'UP':
-            y1-=10
+            y1 -= 10
         if direction == 'DOWN':
-            y1+=10
+            y1 += 10
         if direction == 'LEFT':
-            x1-=10
+            x1 -= 10
         if direction == 'RIGHT':
-            x1+= 10
+            x1 += 10
 
         #проигрышь при столкновение с границей
         if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
             game_close = True
         dis.fill(blue)
         #draw the food
-        if Length_of_snake % 5 !=0:
+        if Length_of_snake % 5 != 0:
             pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
         elif Length_of_snake % 5 == 0:
             pygame.draw.rect(dis, green, [foodn, foodm, 15, 15])
@@ -144,6 +173,11 @@ def gameLoop():
         our_snake(snake_block, snake_List)
         Your_score(Length_of_snake - 1)
         Your_level(level)
+        sql = '''
+                        UPDATE savefile SET score = %s, level = %s WHERE user_name = %s;
+                        '''
+        current.execute(sql, [Length_of_snake, level, username])
+        config.commit()
 
         pygame.display.update()
 
@@ -174,5 +208,8 @@ def gameLoop():
     pygame.quit()
     quit()
 
-
 gameLoop()
+
+config.commit()
+current.close()
+config.close()

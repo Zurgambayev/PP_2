@@ -30,7 +30,7 @@ font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, BLACK)
 
-background = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/AnimatedStreet.png")
+background = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/AnimatedStreet.png")
 
 #Create a white screen 
 DISPLAYSURF = pygame.display.set_mode((400, 600))
@@ -41,7 +41,7 @@ pygame.display.set_caption("Game")
 class Enemy(pygame.sprite.Sprite):
       def __init__(self):
         super().__init__() 
-        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/Enemy.png")
+        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/Enemy.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH-40), 0)
 
@@ -56,7 +56,7 @@ class Enemy(pygame.sprite.Sprite):
 class Car(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/coin2.png")
+        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/coin2.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
@@ -71,7 +71,7 @@ class Car(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__() 
-        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/Player.png")
+        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/Player.png")
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
        
@@ -89,7 +89,7 @@ class Player(pygame.sprite.Sprite):
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/coin.png")
+        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/coin.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
@@ -105,7 +105,7 @@ class Coin(pygame.sprite.Sprite):
 class Coin_2(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/racer/image/coin2.png")
+        self.image = pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/racer/image/coin2.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH-40), 0)
 
@@ -185,8 +185,8 @@ while True:
 
     #To be run if collision occurs between Player and Enemy
     if pygame.sprite.spritecollideany(P1, enemies):
-          pygame.mixer.Sound('/Users/zeinaddinzurgambayev/pp2/week8/racer/sound/lab8_racer_sound_tsis_8_9_racer_sound_crash.wav').play()
-          pygame.mixer.Sound('/Users/zeinaddinzurgambayev/pp2/week8/racer/sound/lab8_racer_sound_tsis_8_9_racer_sound_music_laugh.wav').play()
+          pygame.mixer.Sound('/Users/zeinaddinzurgambayev/pp2/week8-9/racer/sound/lab8_racer_sound_tsis_8_9_racer_sound_crash.wav').play()
+          pygame.mixer.Sound('/Users/zeinaddinzurgambayev/pp2/week8-9/racer/sound/lab8_racer_sound_tsis_8_9_racer_sound_music_laugh.wav').play()
           time.sleep(2)
 
           DISPLAYSURF.fill(RED)

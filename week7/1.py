@@ -18,7 +18,7 @@ def blitRotateCenter(surf, image, center, angle):
     new_rect = rotated_image.get_rect(center = image.get_rect(center=center).center)
     surf.blit(rotated_image, new_rect)
 langle = 0 
-rangle = 0
+rangle = 0 
 while True:
     sc.fill(0)
     for event in pygame.event.get():

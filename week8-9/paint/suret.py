@@ -50,7 +50,7 @@ def draw_line(screen, start, end, width, color):
 def main():
     screen = pygame.display.set_mode((1000, 700))
     pygame.display.set_caption('pain(t)')
-    icon = pygame.image.load('/Users/zeinaddinzurgambayev/pp2/week8/paint/image/icon.jpg')
+    icon = pygame.image.load('/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/eraser.jpg')
     pygame.display.set_icon(icon)
 
     pygame.draw.rect(screen, SHADOW, (900, 0, 900, 700))
@@ -70,10 +70,10 @@ def main():
     pygame.draw.line(screen, GREY, (910, 225), (990, 225), 2)
     pygame.draw.line(screen, GREY, (0, 697), (900, 697), 2)
 
-    brush_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/paint/image/brush.jpg"), (20, 20))
-    eraser_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/paint/image/eraser.jpg"), (20, 20))
-    clear_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/paint/image/Clear.png"), (30, 30))
-    save_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/paint/image/save.png"), (98, 50))
+    brush_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/brush.jpg"), (20, 20))
+    eraser_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/eraser.jpg"), (20, 20))
+    clear_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/Clear.png"), (30, 30))
+    save_png = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/save.png"), (98, 50))
 
     # изоображения прямоугольника и круга на кнопки
     pygame.draw.rect(screen, BLACK, (918, 197, 25, 15), 2)
@@ -102,7 +102,7 @@ def main():
         screen.blit(sz_txt, (909, 298))
         pygame.draw.rect(screen, GREY, (910, 335, 80, 80), 2)
         screen.fill(WHITE, (912, 337, 77, 77))
-        sz_btn = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8/paint/image/size.jpg"), (25, 25))
+        sz_btn = pygame.transform.scale(pygame.image.load("/Users/zeinaddinzurgambayev/pp2/week8-9/paint/image/size.jpg"), (25, 25))
         button = screen.blit(sz_btn, (970, 300))
         pygame.display.flip()
 
@@ -280,6 +280,3 @@ def main():
         pygame.display.flip()
 
     pygame.quit()
-
-
-main()
